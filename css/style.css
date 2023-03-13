@@ -47,6 +47,7 @@
     background-color: white;
     color: black;
     padding-top: 50px;
+    padding-left: 50px;
    
   }
   
@@ -56,7 +57,8 @@
     padding: 10px;
     background-color: grey;
     color: white;
-    transition: all 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
+   
   }
   
   aside button {
@@ -65,42 +67,21 @@
     color: white;
     font-size: 44px;
     cursor: pointer;
+
   
   }
   
   aside button:hover {
    color: orange;
-  
-  
   }
-  
-  @keyframes bounce {
-    0% {
-      transform: translateX(0);
-    }
-    20% {
-      transform: translateX(-10px);
-    }
-    40% {
-      transform: translateX(0);
-    }
-    60% {
-      transform: translateX(-5px);
-    }
-    80% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-2px);
-    }
-  }
-  
-  aside.closed {
-    animation: bounce 1s;
-    animation-fill-mode: backwards;
-  }
-  
-  
+
+aside div{
+  width: 100%;
+  height: 80%;
+  background-color: #ccc;
+  margin-top: 10px;
+  visibility: hidden;
+}
   
   footer {
     display: flex;
@@ -114,15 +95,27 @@
       height: 500px;
       margin: auto;
   }
+
+  .main:after{
+    position: absolute;
+    font-family: 'FontAwesome';
+    content: '';
+    font-size: 120px;
+    color: #000000;
+    content: "\f0d7";
+    right: 205px;
+    top: 2%;
+    transform: translateY(-50%);
+  }
   .wheel {
       width: 100%;
       height: 100%;
       position: relative; 
       border-radius: 50%;
-      border: 10px solid #fff;
+      border: 10px solid #000000;
       overflow: hidden;
       transition: all ease 4s;
-      
+     
       
   }
   span {
@@ -197,7 +190,7 @@
        height: 75px;
        border-radius: 50%;
        border: 2px solid #fff;
-       background-color: black;
+       background-color: green;
        color: #fff;
        box-shadow: 0 5px 20px #000;
        font-weight: bold;
@@ -205,7 +198,15 @@
        cursor: pointer;
        animation: pulse 2s infinite;
    }
-  @keyframes pulse {
+
+   .spin:active {
+       width: 70px;
+       height: 70px;
+       font-size: 20px;
+       background: #ffe605;
+   } 
+  
+    @keyframes pulse {
       0% {
       transform: scale3d(1, 1, 1);
       }
@@ -216,13 +217,10 @@
       transform: scale3d(1, 1, 1);
       }
     } 
-   .spin:active {
-       width: 70px;
-       height: 70px;
-       font-size: 20px;
-       background: #ffe605;
-   } 
   
-  
-  
-  
+    @keyframes bounce { 
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+      40% {transform: translateX(-10px);} 
+      60% {transform: translateX(-2px);} 
+   }
+    
