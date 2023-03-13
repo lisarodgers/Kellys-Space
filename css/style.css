@@ -12,7 +12,7 @@
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
-     height: 100vh;
+    height: 100vh;
   }
   
   header{
@@ -32,6 +32,7 @@
   
   header h1{
        text-align:center;
+       text-shadow: 2px 2px #000;
   }
   
   .container {
@@ -45,6 +46,7 @@
     height: 80%;
     background-color: white;
     color: black;
+    padding-top: 50px;
    
   }
   
@@ -94,8 +96,8 @@
   }
   
   aside.closed {
-    animation: bounce 0.5s;
-    animation-fill-mode: forwards;
+    animation: bounce 1s;
+    animation-fill-mode: backwards;
   }
   
   
@@ -120,8 +122,8 @@
       border: 10px solid #fff;
       overflow: hidden;
       transition: all ease 4s;
-      border: 1px;
-      border-style: initial;
+      
+      
   }
   span {
       width: 50%;
