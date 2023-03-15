@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wheel of Names</title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Spin to Win</h1>
+  </header>
+  <div class="container">
+    <main>
+      <div id="wheelContainer">
+        <canvas id="wheelCanvas" class="the_wheel" width="500" height="540"></canvas>
+      </div>
+   
+    </main>
+    <aside>
+      <button id="sidebar-toggle"><i class="fas fa-gear"></i></button>
+      <div id="setting">
+          
+        <form id="nameForm">
+          <input type="text" id="nameInput" placeholder="Enter a name">
+          <button type="submit">Add Name</button>
+        </form>
+
+      </div>
+     
+    </aside>
+ </div>
+  <footer>
+    <div>
+    <button id="spinButton" disabled>Spin the Wheel</button>
+    <button id="resetWheel" disabled>Play again</button>
+  </div>
+  </footer>
+  <!-- Include TweenMax before Winwheel.js -->
+  <script src="main.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="Winwheel.min.js"></script>
+  
+</body>
+</html>

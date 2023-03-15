@@ -123,13 +123,16 @@ aside div{
       height: 50%;
       display: inline-block;
       position: absolute;
+      
   }
   .span1 {
      clip-path: polygon(0 92%, 100% 50%, 0 8%);
      background-color: #ff1f1f;
      top: 120px;
      left: 0;
+     
   }
+
   .span2 {
       clip-path: polygon(100% 92%, 0 50%, 100% 8%);
       background-color: #19e3cf; 
@@ -175,8 +178,10 @@ aside div{
    span p{
        width: 65px;
        height: 65px;
-       font-size: 60px;
+       font-size: 30px;
        text-align: center;
+       text-shadow: 2px 2px 2px black;
+       color: #fff;
        position: absolute;
        top: 50%;
        left: 50%;

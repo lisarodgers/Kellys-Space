@@ -1,0 +1,134 @@
+/*
+Description:
+    Contains all the styles for the winning wheel page.
+    
+Verison History:
+    2023, Lisa Rodgers
+    - Created based off request from Kelly Rodgers.
+    
+    
+*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+
+  header{
+    background-color: orange;
+    color: white;
+    height: 15%;  
+  }
+  
+  footer{
+    height: 10%;
+    background-color:black;
+    color: white; 
+    }
+    footer div {
+        display: flex;
+        flex: 10;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        margin: 0 auto;
+    }
+ 
+
+  header h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 64px;
+    text-align: center;
+    text-shadow: 2px 2px #000;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 75vh;  
+}
+
+main {
+ flex: 10;
+ flex-direction: column;
+}
+
+aside {
+    flex: 0;
+    flex-direction: column;
+    background-color: grey;
+    color: white;
+    transition: all 1s ease-in-out;
+}
+
+aside button {
+    background: transparent;
+    border:none;
+    color: white;
+    font-size: 44px;
+    cursor: pointer;
+  }
+  
+  aside button:hover {
+   color: orange;
+   background-color: transparent;
+  }
+
+aside div{
+ color:black;
+}
+  
+
+  
+#wheelContainer{
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: center;
+    background-color: aqua;
+    height: 100%;
+    
+ }
+/* Sets the background image for the wheel */
+.the_wheel
+{  
+    background-image: url(src/wheel_back.png);
+    background-position: center;
+    background-size: cover ;
+   
+}
+
+button{
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color:orange;
+    color:white;
+}
+button:hover{
+    background-color:rgb(197, 44, 44);
+    
+}
+
+button:disabled { background-color:grey;}
+
+#setting{
+    display: block;
+}
+form input{
+    width: 80%;
+}
+form button{
+    background-color: orange;
+    font-size: 22px;
+}
+
+
+
