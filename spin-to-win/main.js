@@ -47,6 +47,7 @@ function updateWheel() {
     numSegments: names.length,
     segments: names,
     pins: names.length,
+    pointerAngle : 0, 
     outerRadius: 230,
     innerRadius: 80,
     textMargin : 12,

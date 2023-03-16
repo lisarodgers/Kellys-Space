@@ -30,14 +30,14 @@ Verison History:
     background-color:black;
     color: white; 
     }
-    footer div {
-        display: flex;
-        flex: 10;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        align-content: center;
-        margin: 0 auto;
+ footer div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
     }
  
 
@@ -57,6 +57,7 @@ Verison History:
 main {
  flex: 10;
  flex-direction: column;
+
 }
 
 aside {
@@ -84,8 +85,6 @@ aside div{
  color:black;
 }
   
-
-  
 #wheelContainer{
    display: flex;
    align-items: center;
@@ -94,7 +93,6 @@ aside div{
    justify-content: center;
     background-color: aqua;
     height: 100%;
-    
  }
 /* Sets the background image for the wheel */
 .the_wheel
@@ -102,6 +100,7 @@ aside div{
     background-image: url(src/wheel_back.png);
     background-position: center;
     background-size: cover ;
+  
    
 }
 
