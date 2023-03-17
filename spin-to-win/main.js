@@ -6,12 +6,14 @@ const nameForm = document.getElementById("nameForm");
 const wheelContainer = document.getElementById("wheelContainer");
 const spinButton = document.getElementById("spinButton");
 const resetWheel = document.getElementById("resetWheel");
+const settings = document.getElementById("setting");
 const isOpen = sidebar.classList.contains('open');
 
 let names = [];
 let lastColor = null;
 let theWheel;
-let audio = new Audio('src/tick.mp3');  // Create audio object and load desired file.
+let spinSound = new Audio('src/tick.mp3');  // Create audio object and load desired file.
+let winningSound = new Audio('src/kids-yeah.mp3');
 let randomIndex;
 
 sidebarToggle.addEventListener('click', () => {
@@ -19,9 +21,11 @@ sidebarToggle.addEventListener('click', () => {
     main.classList.toggle('open');
     const isOpen = sidebar.classList.contains('open');
     sidebarToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-gear"></i>';
-    sidebar.style.flex = isOpen ? '4' : '0';
-    main.style.flex = isOpen ? '6' : '10';
+    sidebar.style.flex = isOpen ? '3' : '0';
+    sidebar.style.backgroundColor = isOpen ? '#d6d6d6':'white';
+    main.style.flex = isOpen ? '7' : '10';
     sidebar.classList.toggle('closed', !isOpen);
+    settings.style.display =  isOpen ? 'flex' : 'none';
 });
 
 
@@ -37,7 +41,20 @@ nameForm.addEventListener("submit", (event) => {
   }
 });
 
+resetWheel.addEventListener("click", () => {
+  clearInterval(confettiInterval); // Clear the confetti interval
+  let prizeWinnerDiv = document.getElementById("prizeWinner");
+  prizeWinnerDiv.style.display = "none"; // Hide the prize winner div
+  spinButton.disabled = false; // Enable the spin button
+  resetWheel.disabled = true; // Disable the reset button
+  spinButton.style.display = "block"; // Show the spinButton
+  resetWheel.style.display = "none"; // Hide the resetWheel button
+  names = []; // Clear the names array
+  updateWheel(); // Update the wheel with the empty names array
+});
+
 spinButton.addEventListener("click", () => {
+  resetWheel.style.display = "block"; // Show the resetWheel button
   spinTheWheel();
 });
 
@@ -51,9 +68,10 @@ function updateWheel() {
     outerRadius: 230,
     innerRadius: 80,
     textMargin : 12,
+    textFillStyle: 'white', // Set the text color to red
     textFontFamily : 'Oswald',
     textFontWeight : 'bold', 
-    textFontSize: 32,    
+    textFontSize: 36,    
     textOrientation: 'horizontal',
     textAlignment: 'center',
     rotationAngle: 45,
@@ -61,12 +79,8 @@ function updateWheel() {
       type: "spinToStop",
       duration: 5,
       spins: 8,
-      callbackSound : playSound,    // Specify function to call when sound is to be triggered
-      callbackFinished: (indicatedSegment) => {
-        alert(`The winner is: ${indicatedSegment.text}`);
-        
-        stopSound
-      },
+      callbackSound : playSpinSound,    // Specify function to call when sound is to be triggered
+      callbackFinished: alertPrize,
     },
   });
 
@@ -109,22 +123,70 @@ function getRandomColor() {
 }
 
 
-function playSound()
+function playSpinSound()
 {
     // Stop and rewind the sound (stops it if already playing).
-    audio.pause();
-    audio.currentTime = 0;
+    spinSound.pause();
+    spinSound.currentTime = 0;
 
     // Play the sound.
-    audio.play();
+    spinSound.play();
 }
 
-   // Called when the animation has finished.
-   function stopSound()
-   {
-       // Stop and rewind the sound (stops it if still playing).
-       audio.pause();
-       audio.currentTime = 0;
-   }
+// Called when the animation has finished.
+function stopSpinSound()
+{
+    // Stop and rewind the sound (stops it if still playing).
+    spinSound.pause();
+    spinSound.currentTime = 0;
+}
 
+function playWinSound() {
+  
+    // Stop and rewind the sound (stops it if already playing).
+    winningSound.pause();
+    winningSound.currentTime = 0;
 
+    // Play the sound.
+    winningSound.play();
+}
+
+   function createConfetti() {
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+  
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+  
+    let interval = setInterval(function () {
+      let particleCount = 50;
+      // Use default values for all confetti, overriding only a few properties
+      confetti(
+        Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        })
+      );
+      confetti(
+        Object.assign({}, defaults, {
+          particleCount,
+          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+        })
+      );
+    }, 250);
+  
+    return interval; // Add this line to return the interval
+  }
+  
+  
+  function alertPrize() {
+    let winningSegment = theWheel.getIndicatedSegment();
+    let prizeWinnerDiv = document.getElementById("prizeWinner");
+    prizeWinnerDiv.innerHTML = `Congratulations ${winningSegment.text}!`;
+    prizeWinnerDiv.style.display = "flex";
+    confettiInterval = createConfetti(); // Store the confetti interval
+    stopSpinSound();
+    playWinSound();
+  }
+
+  

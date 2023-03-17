@@ -13,6 +13,7 @@
   </header>
   <div class="container">
     <main>
+      <div id="prizeWinner" style="display: none;"></div>
       <div id="wheelContainer">
         <canvas id="wheelCanvas" class="the_wheel" width="500" height="550"></canvas>
       </div>
@@ -20,13 +21,15 @@
     </main>
     <aside>
       <button id="sidebar-toggle"><i class="fas fa-gear"></i></button>
-      <div id="setting">
-          
-        <form id="nameForm">
-          <input type="text" id="nameInput" placeholder="Enter a name">
-          <button type="submit">Add Name</button>
-        </form>
-
+      <div id="setting" style="display: none;" >
+          <form id="nameForm">
+            <input type="text" id="nameInput" placeholder="Enter a name">
+            <button type="submit">Add Name</button> 
+              <input type="checkbox" id="sounds" name="sound" checked>
+              <label for="sound">Play Sounds</label>
+            </div>
+          </form>
+         
       </div>
      
     </aside>
@@ -34,12 +37,13 @@
   <footer>
     <div>
     <button id="spinButton" disabled>Spin the Wheel</button>
-    <button id="resetWheel" disabled>Play again</button>
+    <button id="resetWheel" disabled style="display: none;">Play again</button>
   </div>
   </footer>
   <!-- Include TweenMax before Winwheel.js -->
   <script src="main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
   <script src="Winwheel.min.js"></script>
   
 </body>

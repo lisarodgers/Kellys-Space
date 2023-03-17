@@ -17,6 +17,7 @@ Verison History:
   
   html, body {
     height: 100%;
+    font-family: sans-serif;
   }
 
   header{
@@ -57,27 +58,27 @@ Verison History:
 main {
  flex: 10;
  flex-direction: column;
-
+ overflow: hidden ;
 }
 
 aside {
     flex: 0;
     flex-direction: column;
-    background-color: grey;
+    background-color: #d6d6d6;
     color: white;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 aside button {
-    background: transparent;
+    background-color: none;
     border:none;
     color: white;
-    font-size: 44px;
+    font-size: 28px;
     cursor: pointer;
   }
   
   aside button:hover {
-   color: orange;
+   color: white;
    background-color: transparent;
   }
 
@@ -91,43 +92,152 @@ aside div{
    flex-direction: row;
    flex-wrap: nowrap;
    justify-content: center;
-    background-color: aqua;
-    height: 100%;
+   background-color: rgb(255, 255, 255);
+   height: 100%;
  }
 /* Sets the background image for the wheel */
 .the_wheel
 {  
     background-image: url(src/wheel_back.png);
     background-position: center;
-    background-size: cover ;
-  
-   
+    background-size: cover ; 
 }
 
-button{
-    margin: 10px;
-    padding: 10px;
-    font-weight: bold;
-    background-color:orange;
-    color:white;
+button {
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-button:hover{
-    background-color:rgb(197, 44, 44);
-    
+
+button:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
+
+button:active {
+  transform: scale(0.95);
+}
+
 
 button:disabled { background-color:grey;}
 
 #setting{
     display: block;
+    padding:5px;
+   
+}
+
+form{
+    background-color: #b6b6b6;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 420px;
+    padding: 5px;
+    width: 100%;
 }
 form input{
-    width: 80%;
+    background-color: #efefef;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 50px;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    margin: 15px;
+    cursor: pointer;
 }
 form button{
     background-color: orange;
     font-size: 22px;
 }
 
+#prizeWinner{
+    display: flex;
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    text-shadow:2px 2px 2px #000;
+    font-weight: bold;
+
+}
 
 
+@media only screen and (max-width: 414px) {
+    aside {
+      transform: translateX(-100%);
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s;
+    }
+  
+    aside.open {
+      transform: translateX(0);
+    }
+  
+    main {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s;
+    }
+  
+    main.open {
+      transform: translateX(100%);
+    }
+  
+    #sidebar-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+    }
+  
+    #wheelContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  
+    #wheelCanvas {
+      width: 90%;
+      max-width: 350px;
+      height: auto;
+    }
+  
+    .form-container {
+      padding: 1rem;
+    }
+  
+    .form-container input,
+    .form-container button {
+      width: 100%;
+    }
+  }
+  
