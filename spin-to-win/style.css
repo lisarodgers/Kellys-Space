@@ -166,11 +166,12 @@ form input{
 
 label {
     color: white;
+    padding-left: 15px;
+    text-indent: -15px;
     font-weight: bold;
     text-align: center;
     display: inline-block;
     font-size: 24px;
-    margin: 15px;
     cursor: pointer;
 }
 form button{
