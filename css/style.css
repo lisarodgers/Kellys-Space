@@ -94,6 +94,12 @@ aside div{
       margin: auto;
   }
 
+  main div{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+  }
+
   .main:after{
     position: absolute;
     font-family: 'FontAwesome';
