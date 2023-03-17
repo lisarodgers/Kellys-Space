@@ -90,6 +90,7 @@ function updateWheel() {
 function spinTheWheel() {
   const randomDuration = Math.random() * (10 - 5) + 5;
   spinButton.disabled= true;
+  spinButton.style.display = "none"; // Show the spinButton
   resetWheel.disabled= false;
   theWheel.animation.duration = randomDuration;
   theWheel.startAnimation();
