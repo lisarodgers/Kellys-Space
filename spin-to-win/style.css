@@ -196,55 +196,9 @@ form button{
 }
 
 
-@media only screen and (max-width: 414px) {
-    aside {
-      transform: translateX(-100%);
-      width: 100%;
-      height: 100%;
-      transition: transform 0.3s;
-    }
-  
-    aside.open {
-      transform: translateX(0);
-    }
-  
-    main {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.3s;
-    }
-  
-    main.open {
-      transform: translateX(100%);
-    }
-  
-    #sidebar-toggle {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      z-index: 1;
-    }
-  
-    #wheelContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-  
-    #wheelCanvas {
-      width: 90%;
-      max-width: 350px;
-      height: auto;
-    }
-  
-    .form-container {
-      padding: 1rem;
-    }
-  
-    .form-container input,
-    .form-container button {
-      width: 100%;
-    }
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (orientation: portrait) {
+  body {
+    font-size: 18px;
+    background-color: #f2f2f2;
   }
-  
+}
